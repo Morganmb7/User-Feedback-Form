@@ -25,5 +25,56 @@ document.addEventListener("mouseover", (e) =>{
         e.target.tooltipEl = tooltip;
     }
     });
-}
-)
+
+document.addEventListener("mouseout",(e)=>{
+    if (e.target.tooltipEl) {
+        e.target.tooltupEl.remove();
+        e.target.tooltupEl = null;
+
+    }
+})
+
+//prevent background clicks from triggering fomr logic 
+document.body.addEventListener("click",(e) =>{
+
+}, true);
+
+formWrapper.addEventListener("click",(e) =>{
+    e.stopPropagation(); //prevent bubbling to body
+});
+
+//event delegation for input validation
+form.addEventListener("submit",(e) =>{
+    e.preventDefault();
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const comment = comments.value.trim();
+
+    //clear existing error messages
+    document.querySelectorAll(".error").forEach(el => el.remove());
+    let valid = true;
+
+    if (!name) {
+        showError(nameInput,"Name is required");
+        valid = false;
+
+    }
+    if (!email) {
+        showError(emailInput,"Email is required");
+        valid = false;
+    }
+    if (!comment){
+        showError(comments, "Comment is required");
+        valid = false;
+    }
+    if (valid) {
+        const entry = document.createElement("div");
+           entry.innerHTML = `<strong>${name}</strong> (${email}) said: <p>${comment}</p><hr>`;
+           feedbackDisplay.appendChild(entry);
+           form.reset ();
+           charCount.textContent ="0 characters";
+
+
+    }
+});

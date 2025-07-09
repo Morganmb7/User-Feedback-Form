@@ -10,6 +10,24 @@
                 name:
                 <input type="text" id="name" data-tooktip="enter your full name">
             </label><br>
+
+            <label>
+                email:
+                <input type="email" id="email" data-tooltip="enter a valid email">
+            </label>
+            <label>
+                comments:
+                <textarea id="comments" data-tooltip="Share your feedback"></textarea>
+                <span id="char-count">0 characters</span>
+            </label><br>
+
+            <button type="submit">Submit</button>
         </form>
+
+        <div d="feedback-display">
+            <h3>Submitted Feedback</h3>
+        </div>
     </div>
+    <script src="cp_1.js"></script>
 </body>
+</html>

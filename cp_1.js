@@ -78,3 +78,12 @@ form.addEventListener("submit",(e) =>{
 
     }
 });
+
+//helper to show error messages
+function showError(inputEl,message){
+    const error = document.createElement("div");
+    error.className ="error";
+    error.style.color ="red";
+    error.tectContent = message;
+    inputEl.insertAdjacentElement("afterend",error);
+}

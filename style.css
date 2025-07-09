@@ -30,3 +30,6 @@ margin-top: 5px;
     z-index: 10;
     display: none;
 }
+ #feedback-display {
+                display:none;
+            }

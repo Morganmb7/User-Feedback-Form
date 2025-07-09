@@ -13,7 +13,7 @@ comments.addEventListener('input', () => {
 
 //tooltips
 document.addEventListener("mouseover", (e) =>{
-    if (e.target.matches("input,texareas")){
+    if (e.target.matches("input,textarea")){ 
         const tooltip = document.createElement("div");
         tooltip.className ="tooltip";
         tooltip.textContent =e.target.dataset.tooltip;
@@ -28,9 +28,8 @@ document.addEventListener("mouseover", (e) =>{
 
 document.addEventListener("mouseout",(e)=>{
     if (e.target.tooltipEl) {
-        e.target.tooltupEl.remove();
-        e.target.tooltupEl = null;
-
+        e.target.tooltipEl.remove(); 
+        e.target.tooltipEl = null;   
     }
 })
 
@@ -74,16 +73,18 @@ form.addEventListener("submit",(e) =>{
            feedbackDisplay.appendChild(entry);
            form.reset ();
            charCount.textContent ="0 characters";
+           feedbackDisplay.style.display ="block";
 
 
     }
 });
+
 
 //helper to show error messages
 function showError(inputEl,message){
     const error = document.createElement("div");
     error.className ="error";
     error.style.color ="red";
-    error.tectContent = message;
+    error.textContent = message; 
     inputEl.insertAdjacentElement("afterend",error);
 }

@@ -4,6 +4,7 @@ const emailInput = document.getElementById("email");
 const comments = document.getElementById("comments");
 const charCount = document.getElementById("char-count");
 const feedbackDisplay = document.getElementById("feedback-display");
+feedbackDisplay.style.display="none";
 const formWrapper = document.getElementById("form-wrapper");
 
 //character counter
